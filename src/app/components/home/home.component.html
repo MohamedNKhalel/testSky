@@ -1,0 +1,229 @@
+<div class="">
+    <div class="main ,mmllll">
+        <div class="container">
+            <div  class="first-section text-center">
+                <div class="title">
+                    <img id="logo" src="../../../assets/Images/Sky Builders.png" alt="">
+                    <div  class="mt-2 logo-text">
+                        <h1 id="sky" class="text-uppercase">sky builders</h1>
+                        <p id="brief" class="text-uppercase">General construction & real estate investment</p>
+                    </div>
+                </div>
+                <div class="first-buttons d-flex justify-content-center mt-5 align-items-center gap-4">
+                    <button routerLink="/services" class="text-uppercase d-flex align-items-center gold-btn" type="button">What we do ?</button>
+                    <button routerLink="/portfolio" class="text-uppercase d-flex align-items-center my-btn" type="button">view works<i class="fa-solid fa-circle-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services">
+        <div class="container py-5">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="title position-relative">
+                <h2><span>Unique</span> Services</h2>
+                <div class="img">
+                    <img src="../../../assets/Images/services.jpg" class="w-100" alt="">
+                </div>
+            </div>
+            <div [class.flex-nowrap]="!seeAllClicked" class="row overflow-hidden g-4 mt-4">
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*150" *ngFor="let service of services;let i = index" class="col-lg-4">
+                    <div class="service-card position-relative">
+                        <div class="head">
+                            <h3 ><span class="gold-text">{{service.name}}</span></h3>
+                        </div>
+                        <div class="body">
+                            <div class="layer"></div>
+                            <div class="layer"></div>
+                            <img [src]="service.image" class="w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="second-section  ">
+        <div class="container py-5">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="title position-relative">
+                <div class="img">
+                    <img src="../../assets/Images/3d-rendering-plaza-cisneros-medellin-colombia.jpg" class="w-100" alt="">
+                </div>
+                <h2><span>Unique</span> Projects</h2>
+            </div>
+            <div class="projects">
+                <ul appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="list-unstyled d-flex justify-content-between mt-5 w-50 m-auto p-2 text-white ">
+                    <li [class.active-project]="selectedProject =='interior'" (click)="selectPrjectType('interior')" >
+                        <h3>Interoir</h3>
+                    </li>
+                    <li [class.active-project]="selectedProject =='outdoor'" (click)="selectPrjectType('outdoor')">
+                        <h3>Outdoor</h3>
+                    </li>
+                    <li [class.active-project]="selectedProject =='construction'" (click)="selectPrjectType('construction')">
+                        <h3>Construction</h3>
+                    </li>
+                </ul>
+                <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'interior' ">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" *ngIf="interiorProject.length > 0" class="row project">
+                        <div class="col-md-6 order-lg-0 order-1">
+                            <div class="project-title py-3 d-flex flex-column gap-3">
+                                <h4>{{interiorProject[0].name}}</h4>
+                                <p>{{interiorProject[0].description}}</p>
+                                <div class="mt-auto">
+                                    <button routerLink="/portfolio" class="text-uppercase d-flex align-items-center" type="button">All Projects <i class="fa-solid fa-circle-arrow-right ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-lg-1 order-0">
+                            <div class="project-image">
+                                <img [src]="interiorProject[0].projectCover" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'outdoor'" >
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="250" *ngIf="outdoorProject.length > 0" class="row">
+                        <div class="col-md-6 order-lg-0 order-1">
+                            <div class="project-title py-3 d-flex flex-column justify-content-between gap-3">
+                                <h4>{{outdoorProject[0].name}}</h4>
+                                <p>{{outdoorProject[0].description}}</p>
+                                <div class="mt-auto">
+                                    <button routerLink="/portfolio" class="text-uppercase d-flex align-items-center" type="button">All Projects <i class="fa-solid fa-circle-arrow-right ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-lg-1 order-0">
+                            <div class="project-image">
+                                <img [src]="outdoorProject[0].projectCover" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'construction'" >
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300" *ngIf="constructionProject.length > 0" class="row">
+                        <div class="col-md-6 order-lg-0 order-1">
+                            <div class="project-title py-3 d-flex flex-column justify-content-between gap-3">
+                                <h4>{{constructionProject[0].name}}</h4>
+                                <p>{{constructionProject[0].description}}</p>
+                                <div class="mt-auto">
+                                    <button routerLink="/portfolio" class="text-uppercase d-flex align-items-center" type="button">All Projects <i class="fa-solid fa-circle-arrow-right ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-lg-1 order-0">
+                            <div class="project-image">
+                                <img [src]="constructionProject[0].projectCover" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <div class="quick-section">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="upgrade">
+            <h2><i class="fas fa-rocket"></i> Upgrade Your Thoughts</h2>
+            <p>Take your ideas to the next level with our innovative and sustainable solutions.</p>
+            <button routerLink="/services" type="button" class="gold-btn">Learn More</button>
+        </div>
+    </div>
+    <div  class="about py-5">
+        <div class=" container">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="shape">
+                <h2>About Us</h2>
+            </div>
+            <div class="row mt-4 g-4">
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="col-md-6">
+                    <div>
+                        <div class="brief">
+                            <span class="d-flex align-items-center gap-2"><span class="mb-2">Our Story</span> <i class="fa-solid fa-turn-down"></i></span>
+                            <p><span class="text-uppercase">sky builders</span> has earned a reputation as a trusted leader in delivering top-quality residential, commercial, and industrial projects.</p>
+                        </div>
+                        <div class="about-img overflow-hidden">
+                            <img src="assets/Images/architect-finishing-negotiating-project.jpg" class="w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="250" class="col-md-6">
+                    <div>
+                        <div class="mission-vission">
+                            <div class="misson d-flex">
+                                <h3 class="gold-btn text-white">Mission</h3>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-lightbulb"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Innovation:</strong> Deliver creative and sustainable construction solutions.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-award"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Excellence:</strong> Exceed client expectations with high-quality projects
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-handshake"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Integrity:</strong> Foster trust, transparency, and excellence in every endeavor.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="vission d-flex">
+                                <h3 class="gold-btn text-white">vission</h3>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Global Leadership:</strong> Become a globally recognized leader in construction.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Quality and Growth:</strong> Set benchmarks in innovation, quality, and sustainability.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="misson-item">
+                                            <div class="misson-icon">
+                                                <i class="fas fa-home"></i>
+                                            </div>
+                                            <div class="mission-item-text">
+                                                <strong>Enduring Impact:</strong> Build spaces that inspire and endure for generations.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="loader" class="d-flex typewriter  justify-content-center align-items-center start-0 end-0 bottom-0 top-0 bg-black position-fixed">
+    <h1 class="main-title m-0">{{text}} <span class="cursor">|</span></h1>
+</div>

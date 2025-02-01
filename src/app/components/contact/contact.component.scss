@@ -1,0 +1,121 @@
+.contact{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgb(0, 0, 0)),url("../../../assets/Images/contact.jpg");
+    flex-direction: column;
+    
+}
+.field{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 70%;
+    border-radius: 10px;
+    background-color: white;
+    .form{
+        color: white;
+        textarea{
+            resize: none;
+        }
+        // /* Hide the spinner controls in most modern browsers */
+        // input[type="number"]::-webkit-outer-spin-button,
+        // input[type="number"]::-webkit-inner-spin-button {
+        //     -webkit-appearance: none;
+        //     margin: 0;
+        // }
+
+        .send-btn{
+            padding:22px 30px;
+            border: none;
+            background-color: black;
+            border-radius: var(--border-radius);
+            font-size: 18px;
+            color: white;
+            transition: all .5s;
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: .8);
+            }
+        }   
+    }
+    .side-contact{
+        background-image: linear-gradient(to bottom,#231F02,black);
+        left: -18%;
+        top: 5%;
+        bottom: 5%;
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 30px;
+        .social-media{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-block: 40px;
+            ul{
+                margin: 0;
+                li{
+                    a{
+                        i{
+                            font-size: 22px;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        .company{
+            border-top: solid 2px rgba($color: #fff, $alpha: .4);
+            border-bottom: solid 2px rgba($color: #fff, $alpha: .4);
+        }
+        .company,.support{
+            padding-block: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            width: 100%;
+            gap: 5px;
+            i{
+                color: var(--main-color);
+                font-size: 35px;
+            }
+            h2{
+                font-size: 20px;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            span{
+                text-transform: capitalize;
+                color: rgba($color: #fff, $alpha: .7);
+            }
+            .phones{
+                display: flex;
+                gap: 5px;
+                span{
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+.title{
+    font-size: 35px;
+    color: black;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+
+@media screen and (max-width:768px) {
+    .field{
+        width: 100% !important;
+        padding: 20px !important;
+        margin-top: 100px !important;
+
+        .form{
+            margin: 0 !important;
+        }
+    }
+    .side-contact{
+        display: none !important;
+    }
+}

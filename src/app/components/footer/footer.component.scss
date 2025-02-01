@@ -1,0 +1,150 @@
+footer{
+    display: flex;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    // background-image: linear-gradient(to right,rgb(26, 25, 10),black);
+    .all{
+        .left-side{
+            justify-content: space-between;
+            border-right: solid 3px white;
+            gap: 15px;
+            .eng{
+                color: white;
+                h1{
+                    font-family: inherit;
+                    font-size: 26px;
+                    margin: 0;
+                    text-transform: capitalize;
+                }
+                p{
+                    margin: 0;
+                    font-size: 20px;
+                    line-height: normal;
+                    color: rgba($color: #FFF, $alpha: .7);
+                }
+                .logo{
+                    img{
+                        width: 100px;
+                    }
+                }
+                .social-media{
+                    li{
+                        justify-content:flex-start !important;
+                    }
+                }
+            }
+            .company{
+                color: white;
+                h2{
+                    font-size: 30px;
+                    font-weight: 500;
+                    border-bottom: solid 2px white;
+                    display: inline-block;
+                    padding-bottom: 10px;
+                }
+                ul{
+                    li{
+                        h3{
+                            font-size: 20px;
+                            color: rgba(255, 255, 255, 0.7);
+                            transition: all 0.5s ease;
+                            cursor: pointer;
+                            &:hover{
+                                transform: translateX(10px);
+                                color: white;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right-side{
+            .info{
+                ul{
+                    margin: 0;
+                    li{
+                        background-color: var(--main-color);
+                        color: white;
+                        transition: all .2s;
+                        border-radius: var(--border-radius);
+                        &:hover i{
+                            background-color: var(--dark-brown-color);
+                            color: var(--main-color);
+                        }
+                        &:hover{
+                            background-color: var(--dark-brown-color);
+                        }
+                        &:hover a{
+                            color: var(--main-color);
+                        }
+                        a{
+                            text-decoration: none;
+                            color: black;
+                            font-size: 17px;
+                            transition: all .2s;
+                            
+                        }
+                        i{
+                            padding: 10px;
+                            font-size: 18px;
+                            color: black;
+                            border-radius: var(--border-radius);
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.social-media{
+    h3{
+        color: white;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    ul{
+        li{
+            justify-content: space-between;
+            transition: all .2s;
+            a{
+                text-decoration: none;
+            }
+            i{
+                background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('./../../../assets/Images/gold.jpg');
+                background-position: center center;
+                background-size: cover;
+                font-size: 20px;
+                color: rgba(255, 255, 255);
+                border-radius: var(--border-radius);
+                padding: 10px;
+                font-size: 22px;
+                transition: all .3s;
+                &:hover{
+                    background-color: var(--dark-brown-color);
+                    color: var(--main-color);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .left-side{
+        border: none !important;
+        .eng{
+            text-align: center;
+            .social-media{
+                margin: auto;
+                
+            }
+            .logo{
+                img{
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

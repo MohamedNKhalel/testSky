@@ -1,0 +1,77 @@
+<div *ngIf="project"  class="main main-background position-relative flex-column" [style.backgroundImage]="'linear-gradient(rgba(0, 0, 0,.6) , rgb(0, 0, 0)) ,url('+ProjectBackground+')'">
+    <h1 class="main-title">{{project['name']}}</h1>
+    <div class="start-project mt-3">
+        <span>Have a project ?</span>
+        <button type="button" [routerLink]="['/contact']"><span>Contact Us </span><i class="fa-solid fa-wrench"></i></button>
+    </div>
+</div>
+<div *ngIf="project" class="container project">
+    <div class="row g-4 align-items-start">
+        <div  class="col-md-9 p-0 h-100">
+            <div class="left">
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="project-info">
+                    <ul class="list-unstyled d-flex justify-content-between flex-wrap">
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                            <h2 class="m-0">category :  <span>{{project.category.name}}</span></h2>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                            <h2 class="m-0">Status :  <span>{{project.status}}</span></h2>
+                        </li>
+                    </ul>
+                </div>
+                <figure appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="images rounded-3 overflow-hidden d-flex flex-column m-0 justify-content-between ">
+                    <div class="project-cover">
+                        <img [src]="ProjectCover" height="600" class="w-100 object-fit-cover" alt="">
+                        <div class="date-layer">
+                            <ul class="list-unstyled d-flex flex-column gap-4 position-absolute">
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-pencil"></i>
+                                    <h2 class="m-0">Start Date :  <span>{{project.startDate | date:'dd - MMMM - yyyy'}}</span></h2>
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-trowel-bricks"></i>
+                                    <h2 class="m-0">End Date :  <span>{{project.endDate | date:'dd - MMMM - yyyy'}}</span></h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <figure  class="second-images m-0">
+                        <img (click)="ProjectCover = image" *ngFor="let image of project.images" height="150" [src]="image" [alt]="project['name']" title="image">
+                    </figure>
+                    
+                </figure>
+                <div class="description mt-4">
+                    <ul class="list-unstyled">
+                        <li appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200">
+                            <p>{{project.location}}</p>
+                        </li>
+                        <li appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200">
+                            <p>{{project.description}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="col-md-3 h-100 ">
+            <div class="some-projects p-3">
+                <h2 class="text-white text-center text-uppercase">Some Projects</h2>
+                <ul class="list-unstyled d-flex flex-column">
+                    <li appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*200" (click)="goToSpecific(myProject._id)" *ngFor="let myProject of allProjects;let i = index " class="d-flex gap-3">
+                        <img [src]="myProject.projectCover" alt="">
+                        <div class="d-flex flex-column justify-content-center ">
+                            <h4>{{myProject.startDate | date:'yyyy-MM-dd' }}</h4>
+                            <h4 >{{myProject.name.split(" ").slice(0,2).join(" ")}}</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="loader" class="d-flex typewriter  justify-content-center align-items-center start-0 end-0 bottom-0 top-0 bg-black position-fixed">
+    <h1 class="main-title m-0">{{text}} <span class="cursor">|</span></h1>
+</div>

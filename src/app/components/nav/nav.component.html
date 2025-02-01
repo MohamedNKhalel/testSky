@@ -1,0 +1,26 @@
+
+<nav  class="my-nav py-2 fixed-top ">
+        <div class="d-flex justify-content-between px-4 p-lg-0 align-items-center container">
+            <div routerLink="/home" class="logo cursor-pointer">
+                <img src="../../assets/Images/Logo.png"  alt="logo">
+            </div>
+            
+            <div class="icons mt-2">
+                <i *ngIf="!isClicked" (click)="isClicked = !isClicked" class="fa-solid fa-bars-staggered"></i>
+                <i *ngIf="isClicked"  (click)="isClicked = !isClicked" class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+</nav>
+
+<div class="links">
+    <div [ngClass]="isClicked ? 'fade-in-nav' : 'fade-out-nav'"  class="links-list position-fixed top-0 bottom-0 start-0 end-0 bg-black d-flex align-items-center">
+        <div class="w-75 m-auto ">
+            <ul class="list-unstyled d-flex flex-column">
+                <li (click)="isClicked = false" routerLink="/home"><a>Homepage</a></li>
+                <li (click)="isClicked = false" routerLink="/portfolio"><a>Portfolio</a></li>
+                <li (click)="isClicked = false" routerLink="/services"><a>Services</a></li>
+                <li (click)="isClicked = false" routerLink="/contact"><a>Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

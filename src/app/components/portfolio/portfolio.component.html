@@ -1,0 +1,110 @@
+<div class="portfolio ">
+    <div class="main-background flex-column">
+        <h1 class="main-title">Portfolio</h1>
+        <p>Hompage - Portfolio</p>
+    </div>
+
+    <div class="main py-4">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="col-lg-6">
+                    <div class="main-left ">
+                        <img src="./assets/Images/low-angle-shot-interior-road-tower-captured-copenhagen-denmark.jpg" class="w-100" alt="">
+                        <div class="layer">
+                            <div>
+                                <h1 class=" text-capitalize">We are <span>skybuilders</span></h1>
+                                <p>Crafting seamless connections and visionary projects</p>
+                            </div>
+                            <a class="text-decoration-none">Start Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-lg-6">
+                    <div class="main-right">
+                        <div class="row g-4">
+                            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300" class="col-md-6">
+                                <div class="category">
+                                    <img src="./assets/Images/categories/indoor.jpg" class="w-100" alt="">
+                                    <div class="type">
+                                        <h2 class="text-uppercase m-0">Interior</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="350" class="col-md-6">
+                                <div class="category">
+                                    <img src="./assets/Images/categories/building.jpg" class="w-100" alt="">
+                                    <div class="type">
+                                        <h2 class="text-uppercase m-0">outdoor</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="350" class="col-md-6">
+                                <div class="category">
+                                    <img src="./assets/Images/categories/construction.jpg" class="w-100" alt="">
+                                    <div class="type">
+                                        <h2 class="text-uppercase m-0">construction</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="400" class="col-md-6">
+                                <div class="category">
+                                    <img src="./assets/Images/categories/finishing.jpg" class="w-100" alt="">
+                                    <div class="type">
+                                        <h2 class="text-uppercase m-0">finishing</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container all-projects py-5 ">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="text-center">
+            <h1 class="text-uppercase">Sky Byuilders</h1>
+            <p class="text-uppercase">tak a deep look to our Projects</p>
+        </div>
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="d-flex align-items-center justify-content-between">
+            <div>
+                <select (change)="filterProjects($event)" class="form-select w-100 bg-dark text-white border-0" title="project-type">
+                    <option selected disabled>Filter Project</option>
+                    <option value="all">All</option>
+                    <option   *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</option>
+                </select>
+            </div>
+            <div>
+                <button *ngIf="projects.length > 3 " (click)="interoirIsClicked = !interoirIsClicked" type="button" class="btn btn-dark w-100"><span *ngIf="!interoirIsClicked">Show All</span><span *ngIf="interoirIsClicked">Show Less</span></button>
+            </div>
+        </div>
+        
+        <div [class.flex-nowrap]="!interoirIsClicked" class="row g-4 main-projects overflow-auto">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*150" class="col-md-4  py-3" *ngFor="let project of projects;let i = index">
+                <div [routerLink]="['/portfolio',project._id]" class="project rounded-3 overflow-hidden ">
+                    <div class="project-head position-relative">
+                        <img class="w-100 object-fit-cover" height="300" [src]="project.projectCover" alt="">
+                        <div class="image-layer position-absolute">
+                            <h3 class="w-100 m-0 text-center">{{project.category.name?project.category.name:catName}}</h3>
+                        </div>
+                        <span class="position-absolute top-0 start-0">{{project.status}}</span>
+                        <div class="head-layer position-absolute d-flex justify-content-center align-items-center">
+                            <h2 class="text-center">{{project.name}}</h2>
+                            <a [routerLink]="['/portfolio',project._id]" class="text-decoration-none">Show Details <i class="fa-solid fa-angles-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="project-body p-4">
+                            <h2 class="text-center">{{project.name}}</h2>
+                        </div>
+                        <div class="project-footer">
+                            <p class="m-0"><i class="fa-solid fa-map-location-dot"></i> {{project.location}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loader" class="d-flex typewriter  justify-content-center align-items-center start-0 end-0 bottom-0 top-0 bg-black position-fixed">
+    <h1 class="main-title m-0">{{text}} <span class="cursor">|</span></h1>
+</div>

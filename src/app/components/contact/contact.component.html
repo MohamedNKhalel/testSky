@@ -1,0 +1,115 @@
+<div class="contact main-background ">
+    <h1 class="main-title">contact US</h1>
+    <p>homepage - Contact</p>
+</div>
+<div class="container py-5">
+    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="m-auto field position-relative p-5">
+        <div class="row">
+            <div  class="col-md-10 offset-lg-2">
+                <div>
+                    <h2 class="title ms-1">Get in touch</h2>
+                    <form (ngSubmit)="addNewContact()" [formGroup]="contactForm" class="row form ms-5">
+                        <div class="col-md-6">
+                            <mat-form-field  appearance="outline" class="full-width">
+                                <mat-label>First Name</mat-label>
+                                <input formControlName="firstName" matInput type="text" placeholder="type here...">
+                                <mat-error>
+                                    First Name is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Last Name</mat-label>
+                                    <input formControlName="lastName" matInput type="text" placeholder="type here...">
+                                    <mat-error>
+                                        Last Name is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input formControlName="email" matInput type="text" placeholder="mail@example.com">
+                                    <mat-error *ngIf="contactForm.get('email')?.errors?.['required']">
+                                        Email is required
+                                    </mat-error>
+                                    <mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
+                                        Enter valid email address
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Phone number</mat-label>
+                                    <input  formControlName="phone" matInput type="tel" placeholder="type here...">
+                                    <mat-error *ngIf="contactForm.get('phone')?.errors?.['required']">
+                                        Phone is required
+                                    </mat-error>
+                                    <mat-error *ngIf="contactForm.get('phone')?.errors?.['pattern']">
+                                        Enter Valid phone Number
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Description</mat-label>
+                                    <textarea formControlName="description" rows="6" placeholder="enter message..." matInput id=""></textarea>
+                                    <mat-error *ngIf="contactForm.get('description')?.errors?.['required']">
+                                        Message is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <button [disabled]="contactForm.invalid" class="gold-btn" type="submit"><span *ngIf="!isLoading">Send Message</span><span *ngIf="isLoading">Sending <i class="fa fa-spinner fa-spin"></i></span></button>
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="400" class="position-absolute side-contact">
+            <div class="social-media">
+                <ul class="list-unstyled  d-flex gap-3">
+                    <li>
+                        <a  rel="noopener" title="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=61566424347774"><i class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a  rel="noopener" title="tiktok" target="_blank" href="https://www.tiktok.com/@skybuilders1?is_from_webapp=1&sender_device=pc"><i class="fa-brands fa-tiktok"></i></a>
+                    </li>
+                    <li>
+                        <a  rel="noopener" title="linked in" target="_blank" href="https://www.linkedin.com/404/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </li>
+                    <li>
+                        <a  rel="noopener" title="instagram" target="_blank" href="https://www.instagram.com/skybuilders10?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="company">
+                <i class="fa fa-location-dot"></i>
+                <h2>Sky builders</h2>
+                <span>Al-ordnia / 10th of ramadan</span>
+            </div>
+            <div class="support">
+                <i class="fa-solid fa-headset"></i>
+                <h2>Help & Support</h2>
+                <div class="phones">
+                    <span>(+20) 0109 880 9115</span>
+                    <span>|</span>
+                    <span>(+20) 0109 880 9115</span>
+                </div>
+                <span class="text-lowercase">skybuilders10&#64;gmail.com</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loader" class="d-flex typewriter  justify-content-center align-items-center start-0 end-0 bottom-0 top-0 bg-black position-fixed">
+    <h1 class="main-title m-0">{{text}} <span class="cursor">|</span></h1>
+</div>

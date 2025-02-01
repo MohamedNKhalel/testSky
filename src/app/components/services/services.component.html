@@ -1,0 +1,185 @@
+<div class="">
+    <div class="main-background flex-column">
+        <h1 class="main-title">services</h1>
+        <p>homepage - services</p>
+    </div>
+    <section class="services">
+        <div class="container position-relative">
+            <h1 class="title"><strong>Sky Builders</strong> Crafting excellence through our expert services.</h1>
+            <div class="row section-one g-4 ">
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-lg-6">
+                    <div class="left">
+                        <img src="./assets/Images/service(2).webp" alt="">
+                    </div>
+                </div>
+                <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300" class="col-lg-6">
+                    <div class="right">
+                        <div class="position-relative">
+                            <img class="d-block ms-auto" src="./assets/Images/service(1).png" alt="">
+                            <div class="position-absolute text ">
+                                <p>At Sky Builders, we bring your visions to life with exceptional craftsmanship and innovative solutions. Explore our range of services designed to meet your every need.</p>
+                                <div class="d-flex gap-3 buttons flex-wrap">
+                                    <button routerLink="/contact" type="button" >Get Start <i class="fa fa-arrow-up"></i></button>
+                                    <a class="text-white text-decoration-none" href="https://www.youtube.com/@SkyBuilders10" rel="noopener" target="_blank"><i class="fa fa-play"></i> Play Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    <section class="container section-two">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="headline row align-items-start">
+            <div class="col-lg-9">
+                <div>
+                    <h2>Explore our innovative services with <span>efficient contact management</span></h2>
+                    <div class="col-lg-10">
+                        <p>services designed to simplify your workflow. We offer efficient contact management, seamless project uploads, and secure collaboration tools to help you bring your ideas to life with ease and efficiency.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div>
+                    <button (click)="seeAllClicked = !seeAllClicked"  class="d-block ms-auto" type="button">see <span *ngIf="!seeAllClicked">all</span> <span *ngIf="seeAllClicked">less</span>   <i *ngIf="!seeAllClicked" class="fa fa-arrow-up"></i></button>
+                </div>
+            </div>
+        </div>
+        <div [class.flex-nowrap]="!seeAllClicked" class="row overflow-hidden g-4 mt-4">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*150" *ngFor="let service of services;let i = index" class="col-lg-4">
+                <div class="service-card position-relative">
+                    <div class="head">
+                        <h3 ><span class="gold-text">{{service.name}}</span></h3>
+                    </div>
+                    <div class="body">
+                        <div class="layer"></div>
+                        <div class="layer"></div>
+                        <img [src]="service.image" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section class="section-three container py-5">
+        <div class="row align-items-center">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-md-5">
+                <div class="title">
+                    <h2>Foundation of Trust</h2>
+                    <p>Our commitment drives every project we undertake. We work closely with our clients, ensuring quality, reliability, and a shared vision for success. Together, we build with purpose and deliver with integrity</p>
+                </div>
+            </div>
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-md-7">
+                <div class="clients g-4">
+                    <div class="client" *ngFor="let client of clients">
+                        <img [src]="client.image" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section class="section-four mb-5 mb-lg-0 py-5">
+    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="container">
+        <div  class="d-flex headline justify-content-between py-4 align-items-center">
+            <div class="say">
+                <h2 class="text-capitalize text-white m-0">our clients say</h2>
+            </div>
+            <div class="d-flex justify-content-end gap-4">
+                <i class="p-3 fa-xl rounded-circle fa fa-chevron-left"></i>
+                <i class="p-3 fa-xl rounded-circle fa fa-chevron-right"></i>
+            </div>
+        </div>
+        <div class="row position-relative">
+            <div class="col-md-5">
+                <div>
+                    <img src="./assets/Images/3d-rendering-plaza-cisneros-medellin-colombia.jpg" class="w-100 rounded-3" alt="">
+                </div>
+            </div>
+            <div class="col-md-7 ">
+                <div class=" position-absolute p-4 comment d-flex flex-column justify-content-between ">
+                    <div class="title py-3 d-flex justify-content-between align-items-center">
+                        <h3 class="d-flex align-items-center gap-2"><span *ngIf="!isRating">MAC</span> <input *ngIf="isRating" type="text" name="name" [(ngModel)]="name" placeholder="Your Name" class="name-input"></h3>
+                        <div (click)="isRating  = !isRating" *ngIf="!isRating" class="create-comment">
+                            <i class="fa fa-comment-alt fa-xl"></i>
+                        </div>
+                        <div (click)=" resetInputs()" *ngIf="isRating" class="close-comment">
+                            <i  class="fa fa-xmark fa-xl"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column text-white opinion overflow-auto">
+                        <p *ngIf="!isRating" class="py-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, quidem minus itaque nisi mollitia cumque autem numquam officiis porro. Quae, ea obcaecati. Porro, architecto. Id quam, esse autem numquam blanditiis porro ratione repudiandae unde cumque? Iusto maxime tempora ex neque aperiam voluptatem cupiditate nostrum, autem, fugiat illum animi vero dolore blanditiis exercitationem enim. Eos nam minus laborum odit quaerat corrupti, error doloremque laudantium ratione architecto unde asperiores aperiam repellat autem beatae. Minus mollitia provident ut quisquam magni sequi. Perspiciatis cumque ut voluptates similique fugiat maxime explicabo odit autem eos non iusto modi alias deserunt expedita vel rerum ad, beatae illo.</p>
+                        <textarea [(ngModel)]="opinion" class="py-3" *ngIf="isRating" placeholder="Your Opinion" name="opinion" cols="5" rows="8"></textarea>
+                    </div>
+                    <div *ngIf="!isRating" (mouseleave)="resetHover()" class="stars  text-white gap-2 d-flex align-items-center mt-2">
+                        <i (mouseemter)="onHover(i+1)" (click)="setRating(i+1)" *ngFor="let num of [1,2,3,4,5] ; let i = index" class="fa fa-star text-warning"></i>
+                        <p  class="m-0">5.0</p>
+                    </div>
+                    <div *ngIf="isRating">
+                        <div  class="d-flex justify-content-between align-items-center ">
+                            <div (mouseleave)="resetHover()" class="stars  text-white gap-2 d-flex align-items-center mt-2">
+                                <i (mouseemter)="onHover(i+1)" (click)="setRating(i+1)" *ngFor="let num of [1,2,3,4,5] ; let i = index" class="fa" [ngClass]="{
+                                    'fa-star':true,
+                                    'text-warning': i < hoverIndex || i < selectedRating,
+                                    'text-nuted': i >= hoverIndex && i >= selectedRating
+                                }"></i>
+                                <p *ngIf="selectedRating" class="m-0">{{selectedRating}}.0</p>
+                            </div>
+                            <div>
+                                <button (click)="addClient()" type="button" class="btn btn-outline-info"><span *ngIf="!isLoading">Send</span> <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i></button>
+                            </div>
+                        </div>
+                        <p *ngIf="errMsg" class="text-center text-capitalize mt-2 m-0 alert alert-danger fs-5">{{errMsg}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="sectoion-five py-5">
+        <div class="container">
+            <div class="row flex-column align-items-center">
+                <div class="row g-4 align-items-end">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="100" class="col-md-3 order-lg-0 order-1 ">
+                        <div class="accreditation d-flex justify-content-center align-items-center">
+                            <h2>ISO</h2>
+                        </div>
+                    </div>
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="120" class="col-md-6 order-lg-1 order-0 ">
+                        <div class="text-center text d-flex flex-column gap-3 pb-5">
+                            <h2 class="text-capitalize">accreditation</h2>
+                            <p>We are proud to be recognized for our commitment to quality and excellence in every project we undertake.</p>
+                            <div>
+                                <button [routerLink]="['/portfolio']" routerLinkActive="router-link-active"  type="button"><span class="pe-1">see projects</span> <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="140" class="col-md-3 order-lg-2 order-2">
+                        <div class="accreditation d-flex justify-content-center align-items-center">
+                            <h2>OSHA</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center mt-lg-5">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="160" class="col-md-3">
+                            <div class="accreditation d-flex justify-content-center align-items-center">
+                                <h2>FSC</h2>
+                            </div>
+                    </div>
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="180" class="col-md-3 offset-lg-1">
+                            <div class="accreditation d-flex justify-content-center align-items-center">
+                                <h2>CPC</h2>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<div *ngIf="loader" class="d-flex typewriter justify-content-center align-items-center start-0 end-0 bottom-0 top-0 bg-black position-fixed">
+    <h1 class="main-title m-0">{{text}} <span class="cursor">|</span></h1>
+</div>

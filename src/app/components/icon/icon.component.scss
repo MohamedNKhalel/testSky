@@ -1,0 +1,32 @@
+.icons{
+    .icon{
+        position: fixed;
+        border-radius: 50%;
+        padding: 15px;
+        background-image: url('./../../../assets/Images/gold.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:nth-child(1){
+            bottom: 10%;
+            left: 10%;
+        }
+        &:nth-child(2){
+            bottom: 10%;
+            right: 10%;
+        }
+        &:hover i{
+            color: rgba(0, 0, 0, 0.85);
+        }
+        i{
+            color: black;
+            font-size: 22px;
+            border-radius: 50%;
+            transition: all .2s ease-in-out;
+        }
+    }
+}
