@@ -29,32 +29,32 @@ export class HomeComponent implements OnInit{
   services:any[] = [
     {
       name:'Architectural Design',
-      image:'./../../../assets/Images/services/Architectural.jpg',
+      image:'./assets/Images/services/Architectural.jpg',
       num:1
     },
     {
       name:'Structural design',
-      image:'./../../../assets/Images/services/Structural.jpg',
+      image:'./assets/Images/services/Structural.jpg',
       num:2
     },
     {
       name:'Licensing works',
-      image:'./../../../assets/Images/services/Licensing.jpg',
+      image:'./assets/Images/services/Licensing.jpg',
       num:3
     },
     {
       name:'Finishing & decoration',
-      image:'./../../../assets/Images/services/Finishing.jpg',
+      image:'./assets/Images/services/Finishing.jpg',
       num:4
     },
     {
       name:'Concrete works',
-      image:'./../../../assets/Images/services/Concrete.jpg',
+      image:'./assets/Images/services/Concrete.jpg',
       num:5
     },
     {
       name:'Real Estate Development',
-      image:'./../../../assets/Images/services/Investment.jpg',
+      image:'./assets/Images/services/Investment.jpg',
       num:6
     },
     
