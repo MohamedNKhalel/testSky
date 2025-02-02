@@ -41,15 +41,15 @@
         </div>
     </div>
     <div class="second-section  ">
-        <div class="container py-5">
-            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="title position-relative">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="container py-5">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="250"  class="title position-relative">
                 <div class="img">
                     <img src="./assets/Images/3d-rendering-plaza-cisneros-medellin-colombia.jpg" class="w-100" alt="">
                 </div>
                 <h2><span>Unique</span> Projects</h2>
             </div>
-            <div class="projects">
-                <ul appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="list-unstyled d-flex justify-content-between mt-5 w-50 m-auto p-2 text-white ">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="350"  class="projects">
+                <ul   class="list-unstyled d-flex justify-content-between mt-5 w-50 m-auto p-2 text-white ">
                     <li [class.active-project]="selectedProject =='interior'" (click)="selectPrjectType('interior')" >
                         <h3>Interoir</h3>
                     </li>
@@ -60,8 +60,8 @@
                         <h3>Construction</h3>
                     </li>
                 </ul>
-                <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'interior' ">
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" *ngIf="interiorProject.length > 0" class="row project">
+                <div  [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'interior' ">
+                    <div  *ngIf="interiorProject.length > 0" class="row project">
                         <div class="col-md-6 order-lg-0 order-1">
                             <div class="project-title py-3 d-flex flex-column gap-3">
                                 <h4>{{interiorProject[0].name}}</h4>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'outdoor'" >
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="250" *ngIf="outdoorProject.length > 0" class="row">
+                    <div  *ngIf="outdoorProject.length > 0" class="row">
                         <div class="col-md-6 order-lg-0 order-1">
                             <div class="project-title py-3 d-flex flex-column justify-content-between gap-3">
                                 <h4>{{outdoorProject[0].name}}</h4>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div [ngClass]="active?'fade-in' : 'fade-out'" class="mt-3" *ngIf="selectedProject == 'construction'" >
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300" *ngIf="constructionProject.length > 0" class="row">
+                    <div  *ngIf="constructionProject.length > 0" class="row">
                         <div class="col-md-6 order-lg-0 order-1">
                             <div class="project-title py-3 d-flex flex-column justify-content-between gap-3">
                                 <h4>{{constructionProject[0].name}}</h4>

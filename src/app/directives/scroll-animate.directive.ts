@@ -1,22 +1,29 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appScrollAnimate]'
 })
-export class ScrollAnimateDirective {
+export class ScrollAnimateDirective implements OnInit {
 
   @Input() animationClass: string = 'fade-in-animate'; // Default animation class
   @Input() hiddenClass: string = 'hidden-animate'; // Default hidden class
   @Input() delay: number = 150; // Delay between animations
-  
+  @Input() disableAnimation: boolean = false; // Flag to disable animation completely
+
   private ticking = false; // Prevents excessive scroll event calls
 
-  constructor(private _ElementRef:ElementRef) { 
-    this._ElementRef.nativeElement.classList.add(this.hiddenClass)
+  constructor(private _ElementRef: ElementRef) {}
+
+  ngOnInit() {
+    this._ElementRef.nativeElement.classList.add(this.hiddenClass);
   }
 
   @HostListener('window:scroll')
   onScroll() {
+    if (this.disableAnimation) {
+      return; // Do nothing when animation is disabled
+    }
+
     if (!this.ticking) {
       requestAnimationFrame(() => {
         this.checkVisibility();
@@ -26,22 +33,20 @@ export class ScrollAnimateDirective {
     }
   }
 
-  private checkVisibility(){
+  private checkVisibility() {
     const rect = this._ElementRef.nativeElement.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    if(rect.top < windowHeight){
+    if (rect.top < windowHeight) {
       setTimeout(() => {
-        this._ElementRef.nativeElement.classList.remove(this.hiddenClass)
-        this._ElementRef.nativeElement.classList.add(this.animationClass)
+        this._ElementRef.nativeElement.classList.remove(this.hiddenClass);
+        this._ElementRef.nativeElement.classList.add(this.animationClass);
       }, this.delay);
-    }
-    else{
+    } else {
       setTimeout(() => {
-        this._ElementRef.nativeElement.classList.add(this.hiddenClass)
-        this._ElementRef.nativeElement.classList.remove(this.animationClass)
+        this._ElementRef.nativeElement.classList.add(this.hiddenClass);
+        this._ElementRef.nativeElement.classList.remove(this.animationClass);
       }, this.delay);
     }
   }
-
 }

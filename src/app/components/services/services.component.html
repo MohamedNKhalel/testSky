@@ -9,7 +9,7 @@
             <div class="row section-one g-4 ">
                 <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-lg-6">
                     <div class="left">
-                        <img src="./assets/Images/service(2).webp" alt="">
+                        <img src="./assets/Images/service(2).png" alt="">
                     </div>
                 </div>
                 <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300" class="col-lg-6">
@@ -100,7 +100,7 @@
             <div class="col-lg-7 ">
                 <div class=" position-absolute p-4 comment d-flex flex-column justify-content-between ">
                     <div class="title py-3 d-flex justify-content-between align-items-center">
-                        <h3 class="d-flex align-items-center gap-2"><span *ngIf="!isRating">MAC</span> <input *ngIf="isRating" type="text" name="name" [(ngModel)]="name" placeholder="Your Name" class="name-input"></h3>
+                        <h3 class="d-flex align-items-center gap-2"><span *ngIf="!isRating">Mohamed Kamal</span> <input *ngIf="isRating" type="text" name="name" [(ngModel)]="name" placeholder="Your Name" class="name-input"></h3>
                         <div (click)="isRating  = !isRating" *ngIf="!isRating" class="create-comment">
                             <i class="fa fa-comment-alt fa-xl"></i>
                         </div>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="d-flex flex-column text-white opinion overflow-auto">
-                        <p *ngIf="!isRating" class="py-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, quidem minus itaque nisi mollitia cumque autem numquam officiis porro. Quae, ea obcaecati. Porro, architecto. Id quam, esse autem numquam blanditiis porro ratione repudiandae unde cumque? Iusto maxime tempora ex neque aperiam voluptatem cupiditate nostrum, autem, fugiat illum animi vero dolore blanditiis exercitationem enim. Eos nam minus laborum odit quaerat corrupti, error doloremque laudantium ratione architecto unde asperiores aperiam repellat autem beatae. Minus mollitia provident ut quisquam magni sequi. Perspiciatis cumque ut voluptates similique fugiat maxime explicabo odit autem eos non iusto modi alias deserunt expedita vel rerum ad, beatae illo.</p>
+                        <p *ngIf="!isRating" class="py-3">Sky Builders exceeded my expectations in many ways. Their team was knowledgeable, efficient, and worked hard to ensure that our construction project was completed on time. The quality of work was impressive, and they kept us updated at every stage. Only a minor delay in the final phase, but overall, great experience.</p>
                         <textarea [(ngModel)]="opinion" class="py-3" *ngIf="isRating" placeholder="Your Opinion" name="opinion" cols="5" rows="8"></textarea>
                     </div>
                     <div *ngIf="!isRating" (mouseleave)="resetHover()" class="stars  text-white gap-2 d-flex align-items-center mt-2">

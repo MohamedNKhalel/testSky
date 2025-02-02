@@ -15,7 +15,7 @@
                                 <h1 class=" text-capitalize">We are <span>skybuilders</span></h1>
                                 <p>Crafting seamless connections and visionary projects</p>
                             </div>
-                            <a class="text-decoration-none">Start Project</a>
+                            <a routerLink="/contact" class="text-decoration-none">Start Project</a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
             <p class="text-uppercase">tak a deep look to our Projects</p>
         </div>
         <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="d-flex align-items-center justify-content-between">
-            <div>
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="300">
                 <select (change)="filterProjects($event)" class="form-select w-100 bg-dark text-white border-0" title="project-type">
                     <option selected disabled>Filter Project</option>
                     <option value="all">All</option>
@@ -82,10 +82,10 @@
             </div>
         </div>
         
-        <div #skyProjects [class.flex-nowrap]="!interoirIsClicked" class="row g-4 main-projects overflow-auto">
-            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*90" class="col-lg-4 col-md-6  py-3" *ngFor="let project of projects;let i = index">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="250" #skyProjects [class.flex-nowrap]="!interoirIsClicked" class="row g-4 main-projects overflow-auto">
+            <div  class="col-lg-4 col-md-6  py-3" *ngFor="let project of projects;let i = index">
                 <div  [routerLink]="['/portfolio',project._id]" class="project rounded-3 overflow-hidden ">
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*100" class="project-head position-relative">
+                    <div  class="project-head position-relative">
                         <img class="w-100 object-fit-cover" height="300" [src]="project.projectCover" alt="">
                         <div class="image-layer position-absolute">
                             <h3 class="w-100 m-0 text-center">{{project.category.name?project.category.name:catName}}</h3>

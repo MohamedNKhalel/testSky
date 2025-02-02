@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { TypewriterService } from 'src/app/services/typewriter.service';
 import { Project } from 'src/app/interfaces/project';
 import { SharedModule } from 'src/app/sharedModules/shared/shared.module';
+import { ScrollAnimateDirective } from 'src/app/directives/scroll-animate.directive';
 
 declare var $:any;
 @Component({
@@ -24,8 +25,10 @@ export class HomeComponent implements OnInit{
   loader:boolean = false;
   text:string = "";
   fulltext:string = "SKYBUILDERS"
-  private ticking:boolean = false; // Prevents excessive updates
   seeAllClicked:boolean =false;
+  disableScrollAnimation:boolean = false;
+  selectedProject:string = 'interior';
+  active:boolean = false;
   services:any[] = [
     {
       name:'Architectural Design',
@@ -60,86 +63,7 @@ export class HomeComponent implements OnInit{
     
   ]
   constructor(private _DataService:DataService,private _TypewriterService:TypewriterService,private _Renderer2:Renderer2){}
-  @ViewChildren('serviceCards') serviceCards!:QueryList<ElementRef>
-  @ViewChildren('projects') projectsAnimate!:QueryList<ElementRef>
-  @ViewChildren('upgrade') upgradeAnimate!:QueryList<ElementRef>
-  @ViewChildren('aboutAnimate') aboutAnimate!:QueryList<ElementRef>
-
-  @HostListener('window:scroll')
-  onScroll() {
-    if (!this.ticking) {
-      requestAnimationFrame(() => {
-        this.serviceCards.forEach((card, index) => {
-          const rect = card.nativeElement.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          if (rect.top < windowHeight - 100) {
-            setTimeout(() => {
-              card.nativeElement.classList.remove('hidden-animate'); 
-              card.nativeElement.classList.add('fade-in-animate'); 
-            }, index * 150); 
-          }else{
-            setTimeout(() => {
-              card.nativeElement.classList.add('hidden-animate'); 
-              card.nativeElement.classList.remove('fade-in-animate'); 
-            }, index * 150); 
-            
-          }
-        });
-        this.projectsAnimate.forEach((project,index)=>{
-          const rect =  project.nativeElement.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          if(rect.top < windowHeight - 100){
-            setTimeout(() => {
-              project.nativeElement.classList.remove('hidden-animate'); 
-              project.nativeElement.classList.add('fade-in-animate'); 
-            }, index * 150);
-          }
-          else{
-              setTimeout(() => {
-                project.nativeElement.classList.add('hidden-animate'); 
-                project.nativeElement.classList.remove('fade-in-animate'); 
-              }, index * 150);
-          }
-        });
-        
-        this.upgradeAnimate.forEach((item,index)=>{
-          const rect =  item.nativeElement.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          if(rect.top < windowHeight - 100){
-            setTimeout(() => {
-              item.nativeElement.classList.remove('hidden-animate'); 
-              item.nativeElement.classList.add('fade-in-animate'); 
-            }, index * 150);
-          }
-          else{
-              setTimeout(() => {
-                item.nativeElement.classList.add('hidden-animate'); 
-                item.nativeElement.classList.remove('fade-in-animate'); 
-              }, index * 150);
-          }
-        });
-        this.aboutAnimate.forEach((item,index)=>{
-          const rect =  item.nativeElement.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          if(rect.top < windowHeight - 100){
-            setTimeout(() => {
-              item.nativeElement.classList.remove('hidden-animate'); 
-              item.nativeElement.classList.add('fade-in-animate'); 
-            }, index * 150);
-          }
-          else{
-              setTimeout(() => {
-                item.nativeElement.classList.add('hidden-animate'); 
-                item.nativeElement.classList.remove('fade-in-animate'); 
-              }, index * 150);
-          }
-        });
-        
-        this.ticking = false; 
-      });
-      this.ticking = true; 
-    }
-  }
+  @ViewChild(ScrollAnimateDirective) scrollDirective!: ScrollAnimateDirective;
   ngOnInit(): void {
     this.getProjects();
     this.animateLogo()
@@ -154,10 +78,13 @@ export class HomeComponent implements OnInit{
     },1800)
   }
 
-  selectedProject:string = 'interior';
-  logoText:string = "Sky builders"
-  displayedLogoText:string = "";
-  active:boolean = false;
+  disableAnimations(){
+    this.disableScrollAnimation = true;
+    setTimeout(() => {
+      this.disableScrollAnimation = false;
+    }, 300);
+  }
+  
   selectPrjectType(type:string){
     this.selectedProject = type;
     this.active = !this.active
