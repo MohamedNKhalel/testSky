@@ -152,7 +152,6 @@
                 color: white;
             }
             i{
-
                 transform: rotate(45deg);
             }
         }
@@ -444,6 +443,46 @@
             width: 100%;
             height: 115%;
             top: 70%;
+        }
+    }
+}
+
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .services{
+        .title{
+            width: 100% !important;
+            line-height: 70px;
+            text-align: center;
+            position: static;
+        }
+    }
+    .comment{
+        right: 10px !important;
+    }
+    .section-one{
+        justify-content: center;
+        .left{
+            margin-top: 20px !important;
+            &::before{
+                width: 200px !important;
+                height: 200px !important;
+            }
+            img{
+                width: 100% !important;
+            }
+        }
+        .right{
+            img{
+                display: none !important;
+            }
+            .text{
+                position: static !important;
+                width: 100%;
+                .buttons{
+                    margin-top: 10px;
+                    justify-content: space-between;
+                }
+            }
         }
     }
 }

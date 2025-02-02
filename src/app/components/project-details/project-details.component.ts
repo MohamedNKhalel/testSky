@@ -44,7 +44,7 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(()=>{
       this.loader  = false
-    },2000)
+    },2500)
   }
   goToSpecific(id:string){
     this.projectId = id;

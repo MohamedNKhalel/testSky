@@ -148,3 +148,21 @@ footer{
         }
     }
 }
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .left-side{
+        border: none !important;
+        .eng{
+            text-align: center;
+            .social-media{
+                margin: auto;
+                
+            }
+            .logo{
+                img{
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

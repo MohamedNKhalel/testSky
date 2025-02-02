@@ -2,9 +2,9 @@
     <h1 class="main-title">contact US</h1>
     <p>homepage - Contact</p>
 </div>
-<div class="container py-5">
+<div class="container position-relative py-5">
     <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="m-auto field position-relative p-5">
-        <div class="row">
+        <div class="row justify-content-center">
             <div  class="col-md-10 offset-lg-2">
                 <div>
                     <h2 class="title ms-1">Get in touch</h2>
@@ -71,42 +71,42 @@
                         <div>
                             <button [disabled]="contactForm.invalid" class="gold-btn" type="submit"><span *ngIf="!isLoading">Send Message</span><span *ngIf="isLoading">Sending <i class="fa fa-spinner fa-spin"></i></span></button>
                         </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
-        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="400" class="position-absolute side-contact">
-            <div class="social-media">
-                <ul class="list-unstyled  d-flex gap-3">
-                    <li>
-                        <a  rel="noopener" title="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=61566424347774"><i class="fa-brands fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a  rel="noopener" title="tiktok" target="_blank" href="https://www.tiktok.com/@skybuilders1?is_from_webapp=1&sender_device=pc"><i class="fa-brands fa-tiktok"></i></a>
-                    </li>
-                    <li>
-                        <a  rel="noopener" title="linked in" target="_blank" href="https://www.linkedin.com/404/"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </li>
-                    <li>
-                        <a  rel="noopener" title="instagram" target="_blank" href="https://www.instagram.com/skybuilders10?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
-                    </li>
-                </ul>
+    </div>
+    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="400" class="position-absolute side-contact">
+        <div class="social-media">
+            <ul class="list-unstyled  d-flex gap-3">
+                <li>
+                    <a  rel="noopener" title="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=61566424347774"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a  rel="noopener" title="tiktok" target="_blank" href="https://www.tiktok.com/@skybuilders1?is_from_webapp=1&sender_device=pc"><i class="fa-brands fa-tiktok"></i></a>
+                </li>
+                <li>
+                    <a  rel="noopener" title="linked in" target="_blank" href="https://www.linkedin.com/404/"><i class="fa-brands fa-linkedin-in"></i></a>
+                </li>
+                <li>
+                    <a  rel="noopener" title="instagram" target="_blank" href="https://www.instagram.com/skybuilders10?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="company">
+            <i class="fa fa-location-dot"></i>
+            <h2>Sky builders</h2>
+            <span>Al-ordnia / 10th of ramadan</span>
+        </div>
+        <div class="support">
+            <i class="fa-solid fa-headset"></i>
+            <h2>Help & Support</h2>
+            <div class="phones">
+                <span>(+20) 0109 880 9115</span>
+                <span>|</span>
+                <span>(+20) 0109 880 9115</span>
             </div>
-            <div class="company">
-                <i class="fa fa-location-dot"></i>
-                <h2>Sky builders</h2>
-                <span>Al-ordnia / 10th of ramadan</span>
-            </div>
-            <div class="support">
-                <i class="fa-solid fa-headset"></i>
-                <h2>Help & Support</h2>
-                <div class="phones">
-                    <span>(+20) 0109 880 9115</span>
-                    <span>|</span>
-                    <span>(+20) 0109 880 9115</span>
-                </div>
-                <span class="text-lowercase">skybuilders10&#64;gmail.com</span>
-            </div>
+            <span class="text-lowercase">skybuilders10&#64;gmail.com</span>
         </div>
     </div>
 </div>

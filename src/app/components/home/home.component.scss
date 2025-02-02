@@ -70,17 +70,15 @@
             }
         }
         h2{
-            // background-color: red;
             font-size: 2.5em;
             color: white;
             position: relative;
             z-index: 2;
             margin: 0;
-            line-height: normal;
             gap: 15px;
-            display: flex;
-            align-items: center;
             span{
+                background-color: green($color: #000000);
+                line-height: normal;
                 font-weight: 700;
                 font-size: 70px;
                 background-image:url('./../../../assets/Images/gold.jpg');
@@ -118,6 +116,7 @@
             span{
                 font-weight: 700;
                 font-size: 70px;
+                line-height: normal;
                 background-image:url('./../../../assets/Images/gold.jpg');
                 background-position: center center;
                 background-size: cover;
@@ -434,4 +433,8 @@
     .quick-section{
         padding: 30px !important;
     }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+
+
 }

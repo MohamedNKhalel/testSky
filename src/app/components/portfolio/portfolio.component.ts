@@ -36,6 +36,20 @@ interoirIsClicked:boolean = false;
       this.loader  = false
     },3000)
   }
+  move(direction:string,element:HTMLElement){
+    if(direction == "left"){
+      element.scrollBy({
+      left:-390,
+      behavior:"smooth"
+      })
+    }
+    else if(direction == "right"){
+      element.scrollBy({
+      left:390,
+      behavior:"smooth"
+      })
+    }
+  }
   getProjects(){
     this._DataService.getProjects().subscribe({
       next:data=>{

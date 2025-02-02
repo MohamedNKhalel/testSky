@@ -64,13 +64,13 @@
     </section>
     <section class="section-three container py-5">
         <div class="row align-items-center">
-            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-md-5">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-lg-5">
                 <div class="title">
                     <h2>Foundation of Trust</h2>
                     <p>Our commitment drives every project we undertake. We work closely with our clients, ensuring quality, reliability, and a shared vision for success. Together, we build with purpose and deliver with integrity</p>
                 </div>
             </div>
-            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-md-7">
+            <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-lg-7">
                 <div class="clients g-4">
                     <div class="client" *ngFor="let client of clients">
                         <img [src]="client.image" alt="">
@@ -92,12 +92,12 @@
             </div>
         </div>
         <div class="row position-relative">
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <div>
                     <img src="./assets/Images/3d-rendering-plaza-cisneros-medellin-colombia.jpg" class="w-100 rounded-3" alt="">
                 </div>
             </div>
-            <div class="col-md-7 ">
+            <div class="col-lg-7 ">
                 <div class=" position-absolute p-4 comment d-flex flex-column justify-content-between ">
                     <div class="title py-3 d-flex justify-content-between align-items-center">
                         <h3 class="d-flex align-items-center gap-2"><span *ngIf="!isRating">MAC</span> <input *ngIf="isRating" type="text" name="name" [(ngModel)]="name" placeholder="Your Name" class="name-input"></h3>
@@ -141,12 +141,12 @@
         <div class="container">
             <div class="row flex-column align-items-center">
                 <div class="row g-4 align-items-end">
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="100" class="col-md-3 order-lg-0 order-1 ">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="100" class="col-lg-3 col-md-6 order-lg-0 order-1 ">
                         <div class="accreditation d-flex justify-content-center align-items-center">
                             <h2>ISO</h2>
                         </div>
                     </div>
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="120" class="col-md-6 order-lg-1 order-0 ">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="120" class="col-lg-6 col-md-12 order-lg-1 order-md-0 order-0 ">
                         <div class="text-center text d-flex flex-column gap-3 pb-5">
                             <h2 class="text-capitalize">accreditation</h2>
                             <p>We are proud to be recognized for our commitment to quality and excellence in every project we undertake.</p>
@@ -155,19 +155,19 @@
                             </div>
                         </div>
                     </div>
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="140" class="col-md-3 order-lg-2 order-2">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="140" class="col-lg-3 col-md-6 order-lg-2 order-2">
                         <div class="accreditation d-flex justify-content-center align-items-center">
                             <h2>OSHA</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row g-4 justify-content-center mt-lg-5">
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="160" class="col-md-3">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="160" class="col-lg-3 col-md-6">
                             <div class="accreditation d-flex justify-content-center align-items-center">
                                 <h2>FSC</h2>
                             </div>
                     </div>
-                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="180" class="col-md-3 offset-lg-1">
+                    <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="180" class="col-lg-3 col-md-6 offset-lg-1">
                             <div class="accreditation d-flex justify-content-center align-items-center">
                                 <h2>CPC</h2>
                             </div>

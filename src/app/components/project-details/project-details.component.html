@@ -7,7 +7,7 @@
 </div>
 <div *ngIf="project" class="container project">
     <div class="row g-4 align-items-start">
-        <div  class="col-md-9 p-0 h-100">
+        <div  appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="150" class="col-lg-9 p-0 h-100">
             <div class="left">
                 <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="project-info">
                     <ul class="list-unstyled d-flex justify-content-between flex-wrap">
@@ -54,8 +54,8 @@
                 </div>
             </div>
         </div>
-        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="col-md-3 h-100 ">
-            <div class="some-projects p-3">
+        <div appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="200" class="col-lg-3 h-100 ">
+            <div class="some-projects overflow-hidden p-3">
                 <h2 class="text-white text-center text-uppercase">Some Projects</h2>
                 <ul class="list-unstyled d-flex flex-column">
                     <li appScrollAnimate [animationClass]="'fade-in-animate'" [delay]="(i+1)*200" (click)="goToSpecific(myProject._id)" *ngFor="let myProject of allProjects;let i = index " class="d-flex gap-3">
